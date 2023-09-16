@@ -1,5 +1,6 @@
 use HR_Database;
 
+-- Creating a table
 Create table hrdata(
 emp_no int Primary Key,
 gender varchar(50) Not Null,
@@ -22,16 +23,22 @@ select * from hrdata;
 
 select sum(employee_count) from hrdata;
 
+
+-- Retrieving the total employee from specified field
 select sum(employee_count) as Employee_Count from hrdata
 -- where education='High School';
 -- where department ='R&D';
 where education_field ='Medical';
 
+
+-- Retrieving the count of employees who has left the company
 select count(Attrition) from Hrdata
 -- where attrition= 'Yes' and education ='Doctoral Degree';
 -- where attrition= 'Yes' and department = 'R&D' and education_field='Medical' and Education='High School';
 -- where attrition='No';
  where Attrition='Yes' and Business_travel='Travel_Rarely';
+ 
+ 
  
  select Round(((select count(attrition) from hrdata where attrition='Yes')/ sum(employee_count))*100,2) from hrdata;
 select Round(((select count(attrition) from hrdata where attrition='Yes'and department='Sales')/ sum(employee_count))*100,2) from hrdata
@@ -107,12 +114,3 @@ ORDER BY job_role desc;
 select age_band, gender, sum(employee_count) from hrdata
 group by age_band, gender
 order by age_band, gender desc;
-
-
-
-
-
-
-
-
-
