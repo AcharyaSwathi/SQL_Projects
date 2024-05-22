@@ -1,6 +1,6 @@
 use HR_Database;
 
--- Creating a table
+-- 1)Creating a table
 Create table hrdata(
 emp_no int Primary Key,
 gender varchar(50) Not Null,
@@ -24,14 +24,14 @@ select * from hrdata;
 select sum(employee_count) from hrdata;
 
 
--- Retrieving the total employee from specified field
+-- 2)Retrieving the total employee from specified field
 select sum(employee_count) as Employee_Count from hrdata
 -- where education='High School';
 -- where department ='R&D';
 where education_field ='Medical';
 
 
--- Retrieving the count of employees who has left the company
+-- 3)Retrieving the count of employees who has left the company
 select count(Attrition) from Hrdata
 -- where attrition= 'Yes' and education ='Doctoral Degree';
 -- where attrition= 'Yes' and department = 'R&D' and education_field='Medical' and Education='High School';
